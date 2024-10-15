@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bold Daily Timetable - Horizontal Layout</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1c1c1c;
+            color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+
+        .container {
+            background-color: #2e2e2e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh; /* Limit the height */
+            overflow-x: auto; /* Allow horizontal scrolling */
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeIn 1.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 34px;
+            font-weight: bold;
+            color: #ff9800;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: slideIn 1s forwards 0.5s;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .time-table {
+            display: flex;
+            overflow-x: auto; /* Allow horizontal scrolling */
+            margin-top: 20px;
+            padding: 10px 0; /* Add padding for better visibility */
+        }
+
+        .time-block {
+            display: flex;
+            flex-direction: column;
+            margin: 0 10px;
+            padding: 20px;
+            background-color: #333;
+            border-left: 5px solid #ff9800;
+            border-radius: 6px;
+            min-width: 180px; /* Minimum width for each block */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: fadeInTimeBlock 1s forwards;
+        }
+
+        @keyframes fadeInTimeBlock {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .time-block:nth-child(even) {
+            animation-delay: 0.3s;
+        }
+
+        .time-block:nth-child(odd) {
+            animation-delay: 0.6s;
+        }
+
+        .time-block:hover {
+            background-color: #444;
+            transform: scale(1.02);
+        }
+
+        .time {
+            font-weight: bold;
+            font-size: 18px;
+            color: #ff9800;
+            margin-bottom: 10px; /* Space between time and activity */
+        }
+
+        .activity {
+            font-size: 16px;
+            color: #f4f4f4;
+            flex-grow: 1;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+            opacity: 0;
+            animation: fadeInFooter 1s forwards 2s;
+        }
+
+        @keyframes fadeInFooter {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Bold Daily Flow 🔥</h1>
+        <div class="time-table">
+            <div class="time-block">
+                <div class="time">5:00 AM</div>
+                <div class="activity">Wake Up - Start your day with focus, fresh air, and strength.</div>
+            </div>
+            <div class="time-block">
+                <div class="time">5:00 AM - 6:30 AM</div>
+                <div class="activity">Prayer & Light Warm-up - Center yourself through prayer and engage in a light workout.</div>
+            </div>
+            <div class="time-block">
+                <div class="time">6:30 AM - 8:30 AM</div>
+                <div class="activity">Focused Study - Channel your energy into learning and productivity.</div>
+            </div>
+            <div class="time-block">
+                <div class="time">8:30 AM - 9:00 AM</div>
+                <div class="activity">Break - Take a pause to recharge with a strong coffee or tea.</div>
+            </div>
+            <div class="time-block">
+                <div class="time">9:00 AM - 11:00 AM</div>
+                <div class="activity">Work Mode - Dive into your tasks with full focus and energy.</div>
+            </div>
+            <div class="time-block">
+                <div class="time">11:00 AM - 11:30 AM</div>
+                <div class="activity">Break - Hydrate, stretch, or take a moment of reflection.</div>
+            </div>
+            <div class="time-block">
+                <div class="time">11:30 AM - 12:00 PM</div>
+                <div class="activity">Household Chores - Keep your environment clean and in order.</div>
+            </div>
+            <div class="time-block">
+                <div class="time">12:00 PM - 1:00 PM</div>
+                <div class="activity">Prayer & Lunch - Reconnect and fuel your body with a healthy meal.</div>
+            </div>
+            <div class="time-block">
+                <div class="time">2:00 PM - 3:00 PM</div>
+                <div class="activity">Productivity Hour - Focus on meaningful work and personal growth.</div>
+            </div>
+            <div class="time-block">
+                <div class="time">3:00 PM - 3:30 PM</div>
+                <div class="activity">Quick Break - Take a short breather with a snack or drink.</div>
+            </div>
+            <div class="time-block">
+                <div class="time">3:30 PM - 5:45 PM</div>
+                <div class="activity">Nap - Rest and recover for a strong evening ahead.</div>
+            </div>
+            <div class="time-block">
+                <div class="time">5:45 PM - 6:00 PM</div>
+                <div class="activity">Freshen Up - Prepare yourself for the evening, renewed and ready.</div>
+            </div>
+            <div class="time-block">
+                <div class="time">6:00 PM - 7:00 PM</div>
+                <div class="activity">Gym - Power through a strong workout and improve your fitness.</div>
+            </div>
+            <div class="time-block">
+                <div class="time">7:30 PM - 8:30 PM</div>
+                <div class="activity">Learning - Continue your growth with classes or new knowledge.</div>
+            </div>
+            <div class="time-block">
+                <div class="time">9:30 PM - 11:30 PM</div>
+                <div class="activity">Games & Relaxation - Unwind with games or activities that bring you joy.</div>
+            </div>
+        </div>
+        <footer>
+            <p>Stay disciplined, stay strong. ⚡</p>
+        </footer>
+    </div>
+</body>
+</html>
